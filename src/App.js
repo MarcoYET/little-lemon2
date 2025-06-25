@@ -1,15 +1,23 @@
-import './App.css'; // ✅ This line makes sure styles apply
+import './App.css';
 import Header from './components/Header';
-import Main from './components/Main';
 import Footer from './components/Footer';
+import BookingPage from './BookingPage';
+import Main from './components/Main';
+import ConfirmationPage from './confirmation'; // ✅ Add this
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <Main />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} /> {/* ✅ Fix */}
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 

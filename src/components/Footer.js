@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer className="footer">
@@ -19,17 +21,19 @@ function Footer() {
             </svg>
           </div>
         </div>
+
         <div>
           <h4>Doormat Navigation</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Reservations</a></li>
-            <li><a href="#">Order Online</a></li>
-            <li><a href="#">Login</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/booking">Reservations</Link></li>
+            <li><Link to="/order-online">Order Online</Link></li>
+            <li><Link to="/login">Login</Link></li>
           </ul>
         </div>
+
         <div>
           <h4>Contact</h4>
           <ul>
@@ -39,12 +43,13 @@ function Footer() {
             <li>contact@littlelemon.com</li>
           </ul>
         </div>
+
         <div>
           <h4>Social Media</h4>
           <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
           </ul>
         </div>
       </div>

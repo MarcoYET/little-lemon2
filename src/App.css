@@ -384,7 +384,6 @@ nav a {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   max-width: 960px;
-  left: -150px;
   margin: 0 auto;
 }
 
@@ -414,4 +413,155 @@ nav a {
 .footer-logo {
   width: 160px;
   color: white; /* this now controls the logo color */
+}
+.booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 16px; /* Rounded corners match design system */
+  font-family: 'Karla', sans-serif;
+}
+
+.booking-form label {
+  font-size: 16px; /* Paragraph text size */
+  font-weight: 600; /* Optional: to make labels stand out slightly */
+  color: #495E57;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 0.75rem;
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 16px; /* match the system-wide rounded corners */
+  color: #333;
+}
+
+.booking-main {
+  padding: 2rem 1rem 4rem 1rem;
+}
+
+.booking-form button {
+  padding: 0.75rem 1.5rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #F4CE14; /* brand yellow */
+  color: #333333;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  transition: background-color 0.2s ease;
+}
+
+.booking-form button:hover {
+  background-color: #e2bd13;
+}
+
+
+.booking-hero {
+  background-color: #495E57;
+  color: white;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.booking-hero h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: #f4ce14;
+  margin: 0;
+}
+
+.booking-hero p {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.booking-main {
+  padding: 2rem 1rem;
+}
+
+.heading-xl {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: #f4ce14;
+  margin: 0;
+}
+
+.subheading {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.button-primary {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #f4ce14;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.booking-hero,
+.booking-main,
+.testimonials-placeholder {
+  margin: 0 auto;
+}
+
+.booking-form {
+  border-radius: 16px; /* update from 8px */
+}
+
+.booking-form button {
+  border-radius: 16px; /* update from 5px */
+}
+.booking-image-spacer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 6rem 1rem;
+  background-color: #edefee;
+}
+
+.spacer-img {
+  width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.confirmation-page {
+  padding: 4rem 1rem;
+  text-align: center;
+  background-color: #edefee;
+}
+
+.confirmation-text {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #f4ce14;
+  color: black;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
 }
