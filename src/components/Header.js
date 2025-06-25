@@ -3,8 +3,10 @@ import Nav from './Nav';
 function Header() {
   return (
     <header>
-      <img src="/Logo.svg" alt="Little Lemon Logo" />
-      <Nav />
+      <div className="header-container">
+        <img src="/Logo.svg" alt="Little Lemon Logo" className="logo" />
+        <Nav />
+      </div>
     </header>
   );
 }

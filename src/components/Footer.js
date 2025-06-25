@@ -1,18 +1,53 @@
 function Footer() {
   return (
-    <footer style={{ padding: "1rem", textAlign: "center", backgroundColor: "#EDEFEE" }}>
-      <p>&copy; 2025 Little Lemon. All rights reserved.</p>
-      
-      <p>
-        <a
-          href="https://www.figma.com/design/MG4e0EGZfHDw7Ow5CfPVdT/canvas?node-id=567-109&m=dev&t=IUDl0Bo9NuUAbIAs-1"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "#495E57", textDecoration: "none", fontWeight: "bold" }}
-        >
-          View UI Design in Figma
-        </a>
-      </p>
+    <footer className="footer">
+      <div className="footer-grid">
+        <div>
+          {/* Inline SVG for full control over color */}
+          <div className="footer-logo">
+            <svg
+              fill="currentColor"
+              height="auto"
+              width="160"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1..."
+              />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <h4>Doormat Navigation</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Reservations</a></li>
+            <li><a href="#">Order Online</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>123 Lemon Street</li>
+            <li>Chicago, IL 60601</li>
+            <li>(312) 555-0199</li>
+            <li>contact@littlelemon.com</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Social Media</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   );
 }

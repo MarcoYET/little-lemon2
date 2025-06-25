@@ -1,38 +1,417 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
+  font-family: 'Karla', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+header {
+  background-color: #edefee;
+  padding: 1rem 0;
+}
+.header-container {
+  max-width: 960px; /* <-- match hero-content */
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* Nav */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.hero-section {
+  background-color: #495e57;
+  color: white;
+  padding: 3rem 0;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  height: 400px; /* force same height for both columns */
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns to the top */
+  text-align: left;
+  height: 100%; /* Full height of green box */
+  gap: 1rem; /* Adds space between elements */
+  padding-top: 1rem; /* Optional: add if it looks too stuck to the top */
+  padding-bottom: 1rem;
+}
+
+
+/* Updated Typography */
+.hero-text h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  font-weight: 500; /* Medium */
+  color: #f4ce14;
+  margin: 0;
+}
+
+.hero-text h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0.3rem 0;
+}
+
+.hero-text p {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 1rem 0;
+  max-width: 260px;
+}
+
+.button-primary {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 700; /* Bold */
+  background-color: #f4ce14;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.specials-section {
+  padding: 3rem 0;
+  background-color: #fff;
+  margin-top: 3rem;
+}
+
+.specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem; /* 👈 ensures both H2 and button are padded from the sides */
+}
+
+.specials-header h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  margin: 0;
+}
+
+.menu-button {
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  background-color: #f4ce14;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.specials-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  justify-content: center; /* optional */
+}
+
+
+.card {
+  background-color: #edefee;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* important */
+  min-height: 530px; /* 👈 force minimum card height */
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* let the content area stretch */
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title h3 {
+  font-size: 18px;
+  margin: 1;
+}
+
+.price {
+  color: #ee9972;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 16px;
+  margin: 1rem 0;
+  flex-grow: 1; /* 👈 stretch the paragraph to push icon to bottom */
+  line-height: 1.5;
+  color: #495E57;
+}
+
+.card-link {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin-top: auto; /* 👈 push this button/icon to the bottom */
+}
+
+.basket-icon {
+  width: 25px !important;
+  height: 25px !important;
+  flex-shrink: 0;
+}
+
+/* Align testimonial section with other content */
+.testimonial-section {
+  background-color: #495e57;
+  padding: 6rem 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.testimonial-section > .testimonial-heading {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  margin-bottom: 2rem;
+  margin-top: 0rem;
+  color: #f4ce14;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.testimonial-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 960px;         /* 👈 align with hero & specials */
+  margin: 0 auto;
+  color: #495E57;          /* 👈 center it */
 }
 
-.App-link {
-  color: #61dafb;
+/* Card box */
+.testimonial-card {
+  background-color: #edefee; /* match specials/overall page bg */
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  flex: 1 1 165px;
+  max-height: 180px; /* 👈 limit height */
+  max-width: 200px;
+  text-align: left; /* 👈 aligns profile row nicely */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Profile image + name row */
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Optional */
+.stars {
+  font-size: 18px;
+  color: #f4ce14;
+  margin-bottom: 2rem;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  color: #495e57;
+  line-height: 1.4;
+}
+
+.about-section {
+  background-color: #fefefe;
+  padding: 4rem 2rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 900px;
+  margin: -2rem auto 0 auto;
+
+}
+
+.about-text h2 {
+  font-family: 'Karla', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 1rem
+}
+
+.about-text h3 {
+  font-family: 'Markazi Text', serif;
+  font-size: 28px;
+  color: #495e57;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: #495e57;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.about-images {
+  position: relative;
+  width: fit-content;
+  margin-left: auto; /* Align it to the right edge like the testimonials */
+}
+
+.about-images img {
+  width: 220px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+/* Top image */
+.about-images img:first-child {
+  position: absolute;
+  top: -100px;
+  right: 0;
+  left: -300px;
+  z-index: 2;
+}
+
+/* Bottom-left overlapped image */
+.about-images img:last-child {
+  top: -180px;
+  left: -210px;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+
+
+.footer {
+  background-color: #495e57;
+  padding: 4rem 2rem;
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 960px;
+  left: -150px;
+  margin: 0 auto;
+}
+
+.footer h4 {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-logo {
+  width: 160px;
+  color: white; /* this now controls the logo color */
 }
