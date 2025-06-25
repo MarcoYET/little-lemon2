@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
@@ -13,29 +13,40 @@ export default function BookingForm({
   availableTimes, dispatch
 }) {
   const navigate = useNavigate();
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  // ✅ Real-time form validation logic
+  useEffect(() => {
+    const isValid =
+      date &&
+      time &&
+      guests > 0 &&
+      firstName.trim() &&
+      lastName.trim() &&
+      contact.trim();
+    setIsFormValid(isValid);
+  }, [date, time, guests, firstName, lastName, contact]);
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = {
-    date,
-    time,
-    guests,
-    occasion,
-    firstName,
-    lastName,
-    contact,
+    const formData = {
+      date,
+      time,
+      guests,
+      occasion,
+      firstName,
+      lastName,
+      contact,
+    };
+
+    // Save booking to localStorage
+    const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const updatedBookings = [...existingBookings, formData];
+    localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+
+    navigate("/confirmation");
   };
-
-  // Save booking to localStorage
-  const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
-  const updatedBookings = [...existingBookings, formData];
-  localStorage.setItem("bookings", JSON.stringify(updatedBookings));
-
-  // Navigate to confirmation
-  navigate("/confirmation");
-};
-
 
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
@@ -44,11 +55,7 @@ export default function BookingForm({
   };
 
   return (
-    <form
-      className="booking-form"
-      onSubmit={handleSubmit}
-      aria-label="Table reservation form"
-    >
+    <form className="booking-form" onSubmit={handleSubmit} aria-label="Table reservation form">
       <label htmlFor="res-date">Select Date</label>
       <input
         id="res-date"
@@ -127,7 +134,7 @@ export default function BookingForm({
         aria-required="true"
       />
 
-      <button type="submit">Confirm Reservation</button>
+      <button type="submit" disabled={!isFormValid}>Confirm Reservation</button>
     </form>
   );
 }
