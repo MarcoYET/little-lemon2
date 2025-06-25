@@ -1,9 +1,9 @@
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import BookingPage from './BookingPage';
+import BookingLogic from './components/BookingLogic'; // ✅ Updated
 import Main from './components/Main';
-import ConfirmationPage from './confirmation'; // ✅ Add this
+import ConfirmationPage from './confirmation';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -13,8 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/booking" element={<BookingPage />} />
-        <Route path="/confirmation" element={<ConfirmationPage />} /> {/* ✅ Fix */}
+        <Route path="/booking" element={<BookingLogic />} /> {/* ✅ Updated */}
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Routes>
       <Footer />
     </Router>

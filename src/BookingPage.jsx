@@ -1,11 +1,18 @@
+// src/pages/BookingPage.jsx
 import React from "react";
 import BookingForm from "./components/BookingForm";
-import Testimonials from "./components/Testimonials"; // ✅ Imported
+import Testimonials from "./components/Testimonials";
 
-export default function BookingPage() {
+export default function BookingPage(props) {
+  const {
+    date,
+    availableTimes
+  } = props;
+    const displayDate = date ? new Date(date).toLocaleDateString() : "Selected Day";
+
+
   return (
     <>
-      {/* Green Hero Section */}
       <section className="booking-hero">
         <h1 className="heading-xl">Reserve a Table</h1>
         <p className="subheading">
@@ -13,15 +20,38 @@ export default function BookingPage() {
         </p>
       </section>
 
-      {/* Booking Form */}
       <main className="booking-main">
-        <BookingForm />
+        <BookingForm {...props} />
       </main>
 
-      {/* ✅ Testimonials Section */}
+      {/* ✅ Display available booking times in a table */}
+      <section className="available-times">
+        <h2>Available Times for {displayDate}</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {availableTimes && availableTimes.length > 0 ? (
+              availableTimes.map((time, index) => (
+                <tr key={index}>
+                  <td>{time}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td>No times available</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </section>
+
       <Testimonials />
 
-      {/* ✅ Image Spacer Section */}
       <section className="booking-image-spacer">
         <img
           src="/Mario and Adrian A.jpg"

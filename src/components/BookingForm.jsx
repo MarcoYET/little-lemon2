@@ -1,56 +1,131 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
-export default function BookingForm() {
+export default function BookingForm({
+  date, setDate,
+  time, setTime,
+  guests, setGuests,
+  occasion, setOccasion,
+  firstName, setFirstName,
+  lastName, setLastName,
+  contact, setContact,
+  availableTimes, dispatch
+}) {
   const navigate = useNavigate();
 
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState("Birthday");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [contact, setContact] = useState("");
-
-  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"];
-
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Optionally: Store or send data here
-    navigate("/confirmation");
+  e.preventDefault();
+
+  const formData = {
+    date,
+    time,
+    guests,
+    occasion,
+    firstName,
+    lastName,
+    contact,
+  };
+
+  // Save booking to localStorage
+  const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  const updatedBookings = [...existingBookings, formData];
+  localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+
+  // Navigate to confirmation
+  navigate("/confirmation");
+};
+
+
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    setDate(selectedDate);
+    dispatch({ type: "update", date: selectedDate });
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
-      <label>Select Date</label>
-      <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+    <form
+      className="booking-form"
+      onSubmit={handleSubmit}
+      aria-label="Table reservation form"
+    >
+      <label htmlFor="res-date">Select Date</label>
+      <input
+        id="res-date"
+        type="date"
+        value={date}
+        onChange={handleDateChange}
+        required
+        aria-required="true"
+      />
 
-      <label>Select Time</label>
-      <select value={time} onChange={(e) => setTime(e.target.value)} required>
+      <label htmlFor="res-time">Select Time</label>
+      <select
+        id="res-time"
+        value={time}
+        onChange={(e) => setTime(e.target.value)}
+        required
+        aria-required="true"
+      >
         <option value="">Choose time</option>
         {availableTimes.map((t) => (
           <option key={t} value={t}>{t}</option>
         ))}
       </select>
 
-      <label>Guests</label>
-      <input type="number" value={guests} onChange={(e) => setGuests(e.target.value)} min="1" max="10" required />
+      <label htmlFor="guests">Guests</label>
+      <input
+        id="guests"
+        type="number"
+        value={guests}
+        onChange={(e) => setGuests(e.target.value)}
+        min="1"
+        max="10"
+        required
+        aria-required="true"
+      />
 
-      <label>Occasion</label>
-      <select value={occasion} onChange={(e) => setOccasion(e.target.value)} required>
+      <label htmlFor="occasion">Occasion</label>
+      <select
+        id="occasion"
+        value={occasion}
+        onChange={(e) => setOccasion(e.target.value)}
+        required
+        aria-required="true"
+      >
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
 
-      <label>First Name</label>
-      <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+      <label htmlFor="first-name">First Name</label>
+      <input
+        id="first-name"
+        type="text"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+        required
+        aria-required="true"
+      />
 
-      <label>Last Name</label>
-      <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+      <label htmlFor="last-name">Last Name</label>
+      <input
+        id="last-name"
+        type="text"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+        required
+        aria-required="true"
+      />
 
-      <label>Contact Info</label>
-      <input type="text" value={contact} onChange={(e) => setContact(e.target.value)} required />
+      <label htmlFor="contact">Contact Info</label>
+      <input
+        id="contact"
+        type="text"
+        value={contact}
+        onChange={(e) => setContact(e.target.value)}
+        required
+        aria-required="true"
+      />
 
       <button type="submit">Confirm Reservation</button>
     </form>
